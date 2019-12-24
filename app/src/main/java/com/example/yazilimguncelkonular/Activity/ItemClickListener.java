@@ -1,4 +1,4 @@
-package com.example.yazilimguncelkonular;
+package com.example.yazilimguncelkonular.Activity;
 
 import android.view.View;
 

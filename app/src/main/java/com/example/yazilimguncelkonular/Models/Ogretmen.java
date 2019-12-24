@@ -28,7 +28,7 @@ public class Ogretmen{
 	private List<ClaimsItem> claims;
 	private int userType;
 	private List<AlinanDerslerItem> alinanDersler;
-	private int userType;
+	//private int userType;
 	private String concurrencyStamp;
 	private List<LoginsItem> logins;
 	private String securityStamp;
@@ -233,13 +233,13 @@ public class Ogretmen{
 		return alinanDersler;
 	}
 
-	public void setUserType(int userType){
-		this.userType = userType;
-	}
-
-	public int getUserType(){
-		return userType;
-	}
+//	public void setUserType(int userType){
+//		this.userType = userType;
+//	}
+//
+//	public int getUserType(){
+//		return userType;
+//	}
 
 	public void setConcurrencyStamp(String concurrencyStamp){
 		this.concurrencyStamp = concurrencyStamp;

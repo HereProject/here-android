@@ -1,7 +1,9 @@
-package com.example.yazilimguncelkonular;
+package com.example.yazilimguncelkonular.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.yazilimguncelkonular.R;
 
 public class ProfilActivity extends AppCompatActivity {
 

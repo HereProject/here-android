@@ -4,7 +4,7 @@ public class OgrenciDetay{
 	private String ad;
 	private int gender;
 	private String soyad;
-	private boolean gender;
+	//private boolean gender;
 	private int id;
 	private int userId;
 	private String tc;
@@ -33,13 +33,13 @@ public class OgrenciDetay{
 		return soyad;
 	}
 
-	public void setGender(boolean gender){
-		this.gender = gender;
-	}
-
-	public boolean isGender(){
-		return gender;
-	}
+//	public void setGender(boolean gender){
+//		this.gender = gender;
+//	}
+//
+//	public boolean isGender(){
+//		return gender;
+//	}
 
 	public void setId(int id){
 		this.id = id;

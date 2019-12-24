@@ -1,22 +1,22 @@
-package com.example.yazilimguncelkonular;
+package com.example.yazilimguncelkonular.Activity;
 
 import android.content.Intent;
 import android.graphics.Point;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class MainActivity extends AppCompatActivity {
-FloatingActionButton fab;
+import com.example.yazilimguncelkonular.R;
+
+public class GirisActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        /*fUL Ekran yapma*/
+        setContentView(R.layout.activity_giris);
         Window window;
         window = getWindow();
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -25,14 +25,10 @@ FloatingActionButton fab;
 
         Point point = new Point();
         ekran.getSize(point);
-        /* fUL Ekran yapma**/
-        fab=findViewById(R.id.btn_login);
-
-
     }
 
-    public void Login(View view) {
-        Intent i=new Intent(this,SideMenu.class);
+    public void ogrenciGirisi(View view) {
+        Intent i=new Intent(this, MainActivity.class);
         startActivity(i);
     }
 }
