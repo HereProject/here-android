@@ -6,7 +6,7 @@
     android:id="@+id/contentSide"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".SideMenu"
+    tools:context="Activity.SideMenu"
     tools:showIn="@layout/app_bar_side_menu">
 
 </android.support.constraint.ConstraintLayout>
