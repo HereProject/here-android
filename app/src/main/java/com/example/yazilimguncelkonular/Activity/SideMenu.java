@@ -10,11 +10,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.yazilimguncelkonular.R;
+import com.example.yazilimguncelkonular.RestApi.ManagerAll;
 import com.example.yazilimguncelkonular.dersListesi.DersListesiFragment;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class SideMenu extends AppCompatActivity
@@ -27,6 +33,7 @@ public class SideMenu extends AppCompatActivity
         setContentView(R.layout.activity_side_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
 

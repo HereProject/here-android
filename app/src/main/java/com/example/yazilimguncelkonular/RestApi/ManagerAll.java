@@ -1,8 +1,7 @@
 package com.example.yazilimguncelkonular.RestApi;
 
-import com.example.yazilimguncelkonular.Models.LoginsItem;
-
-import java.util.List;
+import com.example.yazilimguncelkonular.Models.ResponseReturn;
+import com.example.yazilimguncelkonular.Models.Login;
 
 import retrofit2.Call;
 
@@ -13,9 +12,9 @@ public class ManagerAll extends BaseManager{
     {
         return ourInstance;
     }
-    public Call<List<LoginsItem>> getirCall()
+    public Call<ResponseReturn> getirCall(Login login)
     {
-        Call<List<LoginsItem>> x=getRestApi().getir();
+        Call<ResponseReturn> x=getRestApi().getir(login);
         return x;
     }
 }
