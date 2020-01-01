@@ -2,6 +2,9 @@ package com.example.yazilimguncelkonular.RestApi;
 
 import com.example.yazilimguncelkonular.Models.ResponseReturn;
 import com.example.yazilimguncelkonular.Models.Login;
+import com.example.yazilimguncelkonular.Models.YoklamaResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 
@@ -17,4 +20,10 @@ public class ManagerAll extends BaseManager{
         Call<ResponseReturn> x=getRestApi().getir(login);
         return x;
     }
+    public Call<List<YoklamaResponse>> getDers(String token)
+    {
+        Call<List<YoklamaResponse>> x=getRestApi().getDers(token);
+        return x;
+    }
+
 }

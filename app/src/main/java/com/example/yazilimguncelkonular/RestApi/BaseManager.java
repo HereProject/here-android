@@ -6,4 +6,5 @@ public class BaseManager {
         RestApiClient restApiClient=new RestApiClient(BaseUrl.Url);
         return restApiClient.getRestApi();
     }
+
 }

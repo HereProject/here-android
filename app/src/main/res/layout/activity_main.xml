@@ -55,7 +55,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:hint="Kullanıcı Adı"
-                        android:text="ahmet@firat.com"
+                        android:text="170541079@firat.edu.tr"
                         android:imeOptions="actionDone"
                         android:inputType="text" />
 

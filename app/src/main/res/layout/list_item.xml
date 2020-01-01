@@ -33,7 +33,7 @@
             >
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/txtDersAdi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -41,16 +41,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/devamsizlik"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-
-                android:text="Veri Tabanı"
-                android:textSize="18sp"
-                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>
