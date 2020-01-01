@@ -1,41 +1,40 @@
 package com.example.yazilimguncelkonular.Activity;
 
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.yazilimguncelkonular.Helper.Repository;
+import com.example.yazilimguncelkonular.Models.YoklamaResponse;
 import com.example.yazilimguncelkonular.R;
 import com.example.yazilimguncelkonular.RestApi.ManagerAll;
-import com.example.yazilimguncelkonular.dersListesi.DersListesiFragment;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class SideMenu extends AppCompatActivity
+public class Anasayfa extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     FragmentManager manager;
-
+    List<YoklamaResponse> responseList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_side_menu);
+        setContentView(R.layout.activity_anasayfa);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -45,6 +44,33 @@ public class SideMenu extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        getDers();
+        manager = getFragmentManager();
+    }
+    private void getDers() {
+
+        Call<List<YoklamaResponse>> servis= ManagerAll.getInstance().managerAllRestApiDers("Bearer "+Repository.responseReturn.getToken());
+        servis.enqueue(new Callback<List<YoklamaResponse>>() {
+            @Override
+            public void onResponse(Call<List<YoklamaResponse>> call, Response<List<YoklamaResponse>> response) {
+                if(response.isSuccessful())
+                {
+                    responseList=response.body();
+                    if (response.body()!= null) {
+
+                        Repository.yoklamaResponse=responseList;
+                    }
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Kullanıcı bilgileri hatalı veya bulunmamaktadır.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<YoklamaResponse>> call, Throwable t) {
+                Log.i("meral","Hata Var");
+            }
+        });
     }
 
     @Override
@@ -60,7 +86,7 @@ public class SideMenu extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.side_menu, menu);
+        getMenuInflater().inflate(R.menu.anasayfa, menu);
         return true;
     }
 
@@ -85,30 +111,9 @@ public class SideMenu extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            Intent i=new Intent(this, ProfilActivity.class);
-            startActivity(i);
-
-        } else if (id == R.id.nav_gallery) {
-
-//            DersListesiFragment dersListesiFragment = new DersListesiFragment();
-//            FragmentTransaction transaction = manager.beginTransaction();
-//            transaction.add(R.id.contentSide, dersListesiFragment, "DersListesiFragment");
-//
-//            transaction.addToBackStack("AddDersListesiFragment");
-//            transaction.commit();
-            DersListesiFragment dersListesiFragment= new DersListesiFragment();
-            FragmentManager manager = getFragmentManager();
-            FragmentTransaction transaction=manager.beginTransaction();
-            transaction.add(R.id.contentSide,dersListesiFragment,"DersListesiFragment");
-
-            transaction.addToBackStack("AddDersListesiFragment");
-            transaction.commit();
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        if (id == R.id.derseKatil) {
+            Intent intent = new Intent(this,DersListesi.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
